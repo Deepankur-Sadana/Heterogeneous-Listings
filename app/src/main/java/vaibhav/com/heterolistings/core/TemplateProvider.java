@@ -1,8 +1,8 @@
 package vaibhav.com.heterolistings.core;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import vaibhav.com.heterolistings.R;
 
@@ -11,17 +11,18 @@ import vaibhav.com.heterolistings.R;
  */
 public class TemplateProvider {
 
-    static View getTemplateView(Context context, TemplateType type) {
+    static public View getTemplateView(ViewGroup parent, TemplateType type) {
         View templateView = null;
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         switch (type.getId()) {
             case 1:
-                templateView = LayoutInflater.from(context).inflate(R.layout.layout_template_1, null);
+                templateView = inflater.inflate(R.layout.layout_template_1, parent, false);
                 break;
             case 2:
-                templateView = LayoutInflater.from(context).inflate(R.layout.layout_template_2, null);
+                templateView = inflater.inflate(R.layout.layout_template_2, parent, false);
                 break;
             case 3:
-                templateView = LayoutInflater.from(context).inflate(R.layout.layout_template_3, null);
+                templateView = inflater.inflate(R.layout.layout_template_3, parent, false);
                 break;
         }
         return templateView;
