@@ -6,6 +6,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.viewpagerindicator.IconPageIndicator;
+
 import vaibhav.com.heterolistings.R;
 import vaibhav.com.heterolistings.core.templates.TemplateItemManager;
 import vaibhav.com.heterolistings.core.templates.TemplateProvider;
@@ -36,8 +38,10 @@ public class Type3Manager implements TemplateItemManager<Type3Manager.Type3ViewH
     public void bindViewHolder(Type3ViewHolder holder) {
         ViewPager viewPager = holder.getViewPager();
         Type3PagerAdapter type3PagerAdapter = new Type3PagerAdapter(displayMetrics, data.items);
+        IconPageIndicator indicator = holder.getIndicator();
         viewPager.getLayoutParams().height = getMaxScaledHeight();
         viewPager.setAdapter(type3PagerAdapter);
+        indicator.setViewPager(viewPager);
     }
 
     @Override
@@ -57,15 +61,21 @@ public class Type3Manager implements TemplateItemManager<Type3Manager.Type3ViewH
     static class Type3ViewHolder extends RecyclerView.ViewHolder {
         View itemView;
         ViewPager viewPager;
+        IconPageIndicator indicator;
 
         public Type3ViewHolder(View itemView) {
             super(itemView);
             this.itemView = itemView;
             this.viewPager = (ViewPager) itemView.findViewById(R.id.photo_pager);
+            this.indicator = (IconPageIndicator) itemView.findViewById(R.id.indicator);
         }
 
         private ViewPager getViewPager() {
             return viewPager;
+        }
+
+        private IconPageIndicator getIndicator() {
+            return indicator;
         }
     }
 }

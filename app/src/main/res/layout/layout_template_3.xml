@@ -9,11 +9,11 @@
         android:layout_height="wrap_content" />
 
 
-    <!--com.viewpagerindicator.IconPageIndicator
+    <com.viewpagerindicator.IconPageIndicator
         android:id="@+id/indicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:padding="@dimen/padding_medium" /-->
+        android:padding="@dimen/padding_medium" />
 
 </FrameLayout>

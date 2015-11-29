@@ -9,16 +9,18 @@ import android.widget.ImageView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.viewpagerindicator.IconPagerAdapter;
 
 import java.util.ArrayList;
 
+import vaibhav.com.heterolistings.R;
 import vaibhav.com.heterolistings.core.templates.TemplateProvider;
 import vaibhav.com.heterolistings.data.BundleData;
 
 /**
  * Created by Vaibhav on 11/29/15.
  */
-class Type3PagerAdapter extends PagerAdapter {
+class Type3PagerAdapter extends PagerAdapter implements IconPagerAdapter {
 
     private ArrayList<BundleData.BundleItem> items;
     private DisplayImageOptions displayImageOptions;
@@ -63,8 +65,8 @@ class Type3PagerAdapter extends PagerAdapter {
         container.removeView((View) object);
     }
 
-//    @Override
-//    public int getIconResId(int i) {
-//        return R.drawable.indicator;
-//    }
+    @Override
+    public int getIconResId(int i) {
+        return R.drawable.indicator;
+    }
 }
