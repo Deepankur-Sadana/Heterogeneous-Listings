@@ -22,6 +22,9 @@ public class BundleData {
         public String imageUrl;
         @SerializedName("web-url")
         public String webUrl;
+
+        public int width;
+        public int height;
     }
 
 }

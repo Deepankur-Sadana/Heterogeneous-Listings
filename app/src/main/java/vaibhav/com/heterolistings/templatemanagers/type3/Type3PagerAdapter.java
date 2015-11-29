@@ -2,14 +2,13 @@ package vaibhav.com.heterolistings.templatemanagers.type3;
 
 import android.graphics.Bitmap;
 import android.support.v4.view.PagerAdapter;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 
 import java.util.ArrayList;
 
@@ -23,13 +22,14 @@ class Type3PagerAdapter extends PagerAdapter {
 
     private ArrayList<BundleData.BundleItem> items;
     private DisplayImageOptions displayImageOptions;
+    private DisplayMetrics displayMetrics;
 
-    protected Type3PagerAdapter(ArrayList<BundleData.BundleItem> items) {
+    protected Type3PagerAdapter(DisplayMetrics displayMetrics, ArrayList<BundleData.BundleItem> items) {
         this.items = items;
+        this.displayMetrics = displayMetrics;
+
         displayImageOptions = new DisplayImageOptions.Builder().cacheInMemory(true)
                 .cacheOnDisk(true)
-                .displayer(new FadeInBitmapDisplayer(300))
-                .imageScaleType(ImageScaleType.IN_SAMPLE_INT)
                 .bitmapConfig(Bitmap.Config.RGB_565).build();
     }
 
@@ -46,9 +46,13 @@ class Type3PagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         ImageView imageView = TemplateProvider.getFitWidthImageView(container);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
         ImageLoader.getInstance().displayImage(items.get(position).imageUrl, imageView, displayImageOptions);
+
+        int scaledHeight = displayMetrics.widthPixels/items.get(position).width * items.get(position).height;
+        imageView.getLayoutParams().width = displayMetrics.widthPixels;
+        imageView.getLayoutParams().height = scaledHeight;
 
         container.addView(imageView);
         return imageView;

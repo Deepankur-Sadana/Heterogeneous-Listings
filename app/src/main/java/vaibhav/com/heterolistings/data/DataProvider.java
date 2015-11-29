@@ -27,7 +27,8 @@ public class DataProvider {
                 "            {\n" +
                 "                \"label\": \"My awesome ad\",\n" +
                 "                \"image_url\": \"http://stocks.img.askme.com/campaings/appimages/July/Casually-Cool-Look.jpg\",\n" +
-                "                \"web-url\": \"http://www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"web-url\": \"http://www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\",\n" +
+                "                \"width\": 350 , \"height\": 200"+
                 "            }\n" +
                 "        ]\n" +
                 "    },\n" +
@@ -39,17 +40,26 @@ public class DataProvider {
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal\",\n" +
                 "                \"image_url\": \"http://media.askmebazaar.com/media/catalog/product/thumbnails/150x150/6/c/6curtain.jpeg\",\n" +
-                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\",\n" +
+                "                \"width\": 150 , \"height\": 150"+
                 "            },\n" +
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal1\",\n" +
                 "                \"image_url\": \"http://stocks.img.askme.com/campaings/appimages/July/Casually-Cool-Look.jpg\",\n" +
-                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n," +
+                "                \"width\": 350 , \"height\": 200"+
                 "            },\n" +
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal2\",\n" +
                 "                \"image_url\": \"http://media.askmebazaar.com/media/catalog/product/thumbnails/150x150/i/m/img_9145dh.jpeg\",\n" +
-                "                \"web-url\": \"http://www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"web-url\": \"http://www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n," +
+                "                \"width\": 150 , \"height\": 168"+
+                "            },\n" +
+                "            {\n" +
+                "                \"label\": \"Myawesomedeal\",\n" +
+                "                \"image_url\": \"http://media.askmebazaar.com/media/catalog/product/thumbnails/150x150/6/c/6curtain.jpeg\",\n" +
+                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\",\n" +
+                "                \"width\": 150 , \"height\": 150"+
                 "            }\n" +
                 "        ]\n" +
                 "    },\n" +
@@ -61,7 +71,8 @@ public class DataProvider {
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal\",\n" +
                 "                \"image_url\": \"http://media.askmebazaar.com/media/catalog/product/thumbnails/150x150/r/i/richa-1-aprl-15-41.jpeg\",\n" +
-                "                \"web-url\": \"http://www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"web-url\": \"http://www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\",\n" +
+                "                \"width\": 129 , \"height\": 200"+
                 "            },\n" +
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal\",\n" +
@@ -78,32 +89,38 @@ public class DataProvider {
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal\",\n" +
                 "                \"image_url\": \"http://media.askmebazaar.com/media/catalog/product/thumbnails/150x150/r/i/richa-1-aprl-15-41.jpeg\",\n" +
-                "                \"web-url\": \"http://www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"web-url\": \"http://www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\",\n" +
+                "                \"width\": 129 , \"height\": 200"+
                 "            },\n" +
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal\",\n" +
                 "                \"image_url\": \"http://media.askmebazaar.com/media/catalog/product/thumbnails/150x150/a/n/ankit-3-april-2015-41.jpg\",\n" +
-                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\",\n" +
+                "                \"width\": 150 , \"height\": 106"+
                 "            },\n" +
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal\",\n" +
                 "                \"image_url\": \"http: //media.askmebazaar.com/media/catalog/product/thumbnails/150x150/a/n/ankit-3-april-2015-41.jpg\",\n" +
-                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\",\n" +
+                "                \"width\": 150 , \"height\": 106"+
                 "            },\n" +
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal\",\n" +
                 "                \"image_url\": \"http: //media.askmebazaar.com/media/catalog/product/thumbnails/150x150/a/n/ankit-3-april-2015-41.jpg\",\n" +
-                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\",\n" +
+                "                \"width\": 150 , \"height\": 106"+
                 "            },\n" +
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal\",\n" +
                 "                \"image_url\": \"http: //media.askmebazaar.com/media/catalog/product/thumbnails/150x150/a/n/ankit-3-april-2015-41.jpg\",\n" +
-                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\",\n" +
+                "                \"width\": 150 , \"height\": 106"+
                 "            },\n" +
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal\",\n" +
                 "                \"image_url\": \"http: //media.askmebazaar.com/media/catalog/product/thumbnails/150x150/a/n/ankit-3-april-2015-41.jpg\",\n" +
-                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\",\n" +
+                "                \"width\": 150 , \"height\": 106"+
                 "            }\n" +
                 "        ]\n" +
                 "    }, \n" +
@@ -115,12 +132,14 @@ public class DataProvider {
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal\",\n" +
                 "                \"image_url\": \"http: //media.askmebazaar.com/media/catalog/product/thumbnails/150x150/r/i/richa-1-aprl-15-41.jpeg\",\n" +
-                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\",\n" +
+                "                \"width\": 129 , \"height\": 200"+
                 "            },\n" +
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal\",\n" +
                 "                \"image_url\": \"http: //media.askmebazaar.com/media/catalog/product/thumbnails/150x150/a/n/ankit-3-april-2015-41.jpg\",\n" +
-                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\",\n" +
+                "                \"width\": 150 , \"height\": 106"+
                 "            }\n" +
                 "        ]\n" +
                 "    }\n" +

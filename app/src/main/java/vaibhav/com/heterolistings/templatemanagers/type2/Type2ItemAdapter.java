@@ -2,6 +2,7 @@ package vaibhav.com.heterolistings.templatemanagers.type2;
 
 import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,9 +25,12 @@ class Type2ItemAdapter extends RecyclerView.Adapter<Type2ItemAdapter.Type2ItemVi
 
     private ArrayList<BundleData.BundleItem> items;
     DisplayImageOptions displayImageOptions;
+    DisplayMetrics displayMetrics;
 
-    protected Type2ItemAdapter(ArrayList<BundleData.BundleItem> items) {
+    protected Type2ItemAdapter(DisplayMetrics displayMetrics, ArrayList<BundleData.BundleItem> items) {
         this.items = items;
+        this.displayMetrics = displayMetrics;
+
         displayImageOptions = new DisplayImageOptions.Builder().cacheInMemory(true)
                 .cacheOnDisk(true)
                 .displayer(new FadeInBitmapDisplayer(300))
@@ -38,9 +42,15 @@ class Type2ItemAdapter extends RecyclerView.Adapter<Type2ItemAdapter.Type2ItemVi
     public void onBindViewHolder(Type2ItemViewHolder holder, int position) {
         ImageView imageView = holder.getImageView();
 
-        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
         ImageLoader.getInstance().displayImage(items.get(position).imageUrl, imageView, displayImageOptions);
+
+        int onThirdWidth = displayMetrics.widthPixels/3;
+        int scaledHeight =  (onThirdWidth)/items.get(position).width * items.get(position).height;
+
+        imageView.getLayoutParams().height = scaledHeight;
+        imageView.getLayoutParams().width = onThirdWidth;
     }
 
     @Override

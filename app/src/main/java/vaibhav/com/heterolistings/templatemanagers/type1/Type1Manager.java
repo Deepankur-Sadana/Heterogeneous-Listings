@@ -2,14 +2,13 @@ package vaibhav.com.heterolistings.templatemanagers.type1;
 
 import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 
 import vaibhav.com.heterolistings.R;
 import vaibhav.com.heterolistings.core.templates.TemplateItemManager;
@@ -25,21 +24,37 @@ import vaibhav.com.heterolistings.data.BundleData;
 public class Type1Manager implements TemplateItemManager<Type1Manager.Type1ViewHolder> {
 
     private BundleData data;
+    final private DisplayMetrics displayMetrics;
 
-    public Type1Manager(BundleData data) {
+    public Type1Manager(final DisplayMetrics displayMetrics, BundleData data) {
         this.data = data;
+        this.displayMetrics = displayMetrics;
     }
 
     static public RecyclerView.ViewHolder createViewHolder(ViewGroup parent) {
         View view = TemplateProvider.getTemplateView(parent, TemplateType.TYPE1);
-        return new Type1ViewHolder(view);
+        Type1ViewHolder type1ViewHolder = new Type1ViewHolder(view);
+        return type1ViewHolder;
     }
 
     @Override
     public void bindViewHolder(Type1ViewHolder holder) {
-        if (holder instanceof Type1ViewHolder) {
-            ((Type1ViewHolder) holder).setImage(data.items.get(0).imageUrl);
-        }
+        ImageView imageView = holder.getImageView();
+        setImageAndLayout(imageView);
+    }
+
+    private void setImageAndLayout(ImageView imageView) {
+        DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true)
+                .cacheOnDisk(true)
+                .bitmapConfig(Bitmap.Config.RGB_565).build();
+
+        BundleData.BundleItem item = data.items.get(0);
+
+        ImageLoader.getInstance().displayImage(item.imageUrl, imageView, options);
+
+        int scaledHeight = displayMetrics.widthPixels/item.width * item.height;
+        imageView.getLayoutParams().width = displayMetrics.widthPixels;
+        imageView.getLayoutParams().height = scaledHeight;
     }
 
     @Override
@@ -55,18 +70,12 @@ public class Type1Manager implements TemplateItemManager<Type1Manager.Type1ViewH
             super(itemView);
             this.itemView = itemView;
             this.imageView = (ImageView)itemView.findViewById(R.id.image_fit_width);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
 
-        private void setImage(String imageUrl) {
-            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-
-            DisplayImageOptions options = new DisplayImageOptions.Builder().cacheInMemory(true)
-                    .cacheOnDisk(true)
-                    .displayer(new FadeInBitmapDisplayer(300))
-                    .imageScaleType(ImageScaleType.IN_SAMPLE_INT)
-                    .bitmapConfig(Bitmap.Config.RGB_565).build();
-
-            ImageLoader.getInstance().displayImage(imageUrl, imageView, options);
+        private ImageView getImageView() {
+            return imageView;
         }
+
     }
 }

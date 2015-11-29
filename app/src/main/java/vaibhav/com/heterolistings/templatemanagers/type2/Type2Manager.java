@@ -3,6 +3,7 @@ package vaibhav.com.heterolistings.templatemanagers.type2;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -21,10 +22,12 @@ public class Type2Manager implements TemplateItemManager<Type2Manager.Type2ViewH
 
     private BundleData data;
     private Context context;
+    private DisplayMetrics displayMetrics;
 
-    public Type2Manager(Context context, BundleData data) {
+    public Type2Manager(Context context, DisplayMetrics displayMetrics, BundleData data) {
         this.data = data;
         this.context = context;
+        this.displayMetrics = displayMetrics;
     }
 
     static public Type2ViewHolder createViewHolder(ViewGroup parent) {
@@ -36,13 +39,23 @@ public class Type2Manager implements TemplateItemManager<Type2Manager.Type2ViewH
     public void bindViewHolder(Type2ViewHolder holder) {
         RecyclerView recyclerView = holder.getRecyclerView();
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-        Type2ItemAdapter type2ItemAdapter = new Type2ItemAdapter(data.items);
+        Type2ItemAdapter type2ItemAdapter = new Type2ItemAdapter(displayMetrics, data.items);
+        recyclerView.getLayoutParams().height = getMaxScaledHeightWiththirdOfScreenWidth();
         recyclerView.setAdapter(type2ItemAdapter);
     }
 
     @Override
     public int getItemType() {
         return TemplateType.TYPE2.getId();
+    }
+
+    private int getMaxScaledHeightWiththirdOfScreenWidth() {
+        int maxHeight = 0;
+        for (BundleData.BundleItem item : data.items) {
+            int currentScaledHeight =  (displayMetrics.widthPixels/3)/item.width * item.height;
+            maxHeight = Math.max(currentScaledHeight, maxHeight);
+        }
+        return maxHeight;
     }
 
     static class Type2ViewHolder extends RecyclerView.ViewHolder {

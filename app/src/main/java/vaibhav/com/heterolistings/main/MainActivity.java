@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -39,14 +40,15 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<BundleData> bundleFeed = DataProvider.getData();
 
         ArrayList<TemplateItemManager> templateItemManagers = new ArrayList<>();
-
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         for (BundleData bundleData : bundleFeed) {
             if (bundleData.template.equals(TemplateType.TYPE1.getName()))
-                templateItemManagers.add(new Type1Manager(bundleData));
+                templateItemManagers.add(new Type1Manager(displayMetrics, bundleData));
             else if (bundleData.template.equals(TemplateType.TYPE2.getName()))
-                templateItemManagers.add(new Type2Manager(this,bundleData));
+                templateItemManagers.add(new Type2Manager(this, displayMetrics, bundleData));
             else if (bundleData.template.equals(TemplateType.TYPE3.getName()))
-                templateItemManagers.add(new Type3Manager(bundleData));
+                templateItemManagers.add(new Type3Manager(displayMetrics, bundleData));
         }
 
         HeteroViewsAdapter heteroViewsAdapter = new HeteroViewsAdapter(templateItemManagers);

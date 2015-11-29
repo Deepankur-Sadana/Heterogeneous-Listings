@@ -2,6 +2,7 @@ package vaibhav.com.heterolistings.templatemanagers.type3;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -19,9 +20,11 @@ import vaibhav.com.heterolistings.data.BundleData;
 public class Type3Manager implements TemplateItemManager<Type3Manager.Type3ViewHolder> {
 
     private BundleData data;
+    final private DisplayMetrics displayMetrics;
 
-    public Type3Manager(BundleData data) {
+    public Type3Manager(final DisplayMetrics displayMetrics, BundleData data) {
         this.data = data;
+        this.displayMetrics = displayMetrics;
     }
 
     static public RecyclerView.ViewHolder createViewHolder(ViewGroup parent) {
@@ -32,13 +35,23 @@ public class Type3Manager implements TemplateItemManager<Type3Manager.Type3ViewH
     @Override
     public void bindViewHolder(Type3ViewHolder holder) {
         ViewPager viewPager = holder.getViewPager();
-        Type3PagerAdapter type3PagerAdapter = new Type3PagerAdapter(data.items);
+        Type3PagerAdapter type3PagerAdapter = new Type3PagerAdapter(displayMetrics, data.items);
+        viewPager.getLayoutParams().height = getMaxScaledHeight();
         viewPager.setAdapter(type3PagerAdapter);
     }
 
     @Override
     public int getItemType() {
         return TemplateType.TYPE3.getId();
+    }
+
+    private int getMaxScaledHeight() {
+        int maxHeight = 0;
+        for (BundleData.BundleItem item : data.items) {
+            int currentScaledHeight =  displayMetrics.widthPixels/item.width * item.height;
+            maxHeight = Math.max(currentScaledHeight, maxHeight);
+        }
+        return maxHeight;
     }
 
     static class Type3ViewHolder extends RecyclerView.ViewHolder {
