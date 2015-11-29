@@ -1,8 +1,15 @@
 package vaibhav.com.heterolistings.core.templates;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 
 import vaibhav.com.heterolistings.R;
 
@@ -23,7 +30,7 @@ public class TemplateProvider {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         switch (type.getId()) {
             case 1:
-                templateView = inflater.inflate(R.layout.layout_template_1, parent, false);
+                templateView = getFitWidthImageView(parent);
                 break;
             case 2:
                 templateView = inflater.inflate(R.layout.layout_template_2, parent, false);
@@ -33,6 +40,24 @@ public class TemplateProvider {
                 break;
         }
         return templateView;
+    }
+
+    public static void initImageLoader(Context context) {
+
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
+                context).threadPriority(Thread.NORM_PRIORITY - 2)
+                .memoryCacheSize(4 * 1024 * 1024)
+                .diskCacheSize(15 * 1024 * 1024)
+                .denyCacheImageMultipleSizesInMemory()
+                .diskCacheFileNameGenerator(new Md5FileNameGenerator())
+                .tasksProcessingOrder(QueueProcessingType.LIFO)
+                .build();
+
+        ImageLoader.getInstance().init(config);
+    }
+
+    static public ImageView getFitWidthImageView(ViewGroup parent) {
+        return  (ImageView)LayoutInflater.from(parent.getContext()).inflate(R.layout.item_image_view, parent, false);
     }
 
 }

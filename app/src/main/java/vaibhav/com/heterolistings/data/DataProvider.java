@@ -38,35 +38,35 @@ public class DataProvider {
                 "        \"items\": [\n" +
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal\",\n" +
-                "                \"image_url\": \"http: //media.askmebazaar.com/media/catalog/product/thumbnails/150x150/6/c/6curtain.jpeg\",\n" +
+                "                \"image_url\": \"http://media.askmebazaar.com/media/catalog/product/thumbnails/150x150/6/c/6curtain.jpeg\",\n" +
                 "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
                 "            },\n" +
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal1\",\n" +
-                "                \"image_url\": \"http: //stocks.img.askme.com/campaings/appimages/July/Casually-Cool-Look.jpg\",\n" +
+                "                \"image_url\": \"http://stocks.img.askme.com/campaings/appimages/July/Casually-Cool-Look.jpg\",\n" +
                 "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
                 "            },\n" +
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal2\",\n" +
-                "                \"image_url\": \"http: //media.askmebazaar.com/media/catalog/product/thumbnails/150x150/i/m/img_9145dh.jpeg\",\n" +
-                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"image_url\": \"http://media.askmebazaar.com/media/catalog/product/thumbnails/150x150/i/m/img_9145dh.jpeg\",\n" +
+                "                \"web-url\": \"http://www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
                 "            }\n" +
                 "        ]\n" +
                 "    },\n" +
                 "    {\n" +
                 "        \"label\": \"Recentlyviewed\",\n" +
-                "        \"image\": \"http: //media.askmebazaar.com/media/catalog/product/thumbnails/150x150/6/c/6curtain.jpeg\",\n" +
+                "        \"image\": \"http://media.askmebazaar.com/media/catalog/product/thumbnails/150x150/6/c/6curtain.jpeg\",\n" +
                 "        \"template\": \"product-template-1\",\n" +
                 "        \"items\": [\n" +
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal\",\n" +
-                "                \"image_url\": \"http: //media.askmebazaar.com/media/catalog/product/thumbnails/150x150/r/i/richa-1-aprl-15-41.jpeg\",\n" +
-                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"image_url\": \"http://media.askmebazaar.com/media/catalog/product/thumbnails/150x150/r/i/richa-1-aprl-15-41.jpeg\",\n" +
+                "                \"web-url\": \"http://www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
                 "            },\n" +
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal\",\n" +
-                "                \"image_url\": \"http: //media.askmebazaar.com/media/catalog/product/thumbnails/150x150/a/n/ankit-3-april-2015-41.jpg\",\n" +
-                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"image_url\": \"http://media.askmebazaar.com/media/catalog/product/thumbnails/150x150/a/n/ankit-3-april-2015-41.jpg\",\n" +
+                "                \"web-url\": \"http://www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
                 "            }\n" +
                 "        ]\n" +
                 "    },\n" +
@@ -77,12 +77,12 @@ public class DataProvider {
                 "        \"items\": [\n" +
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal\",\n" +
-                "                \"image_url\": \"http: //media.askmebazaar.com/media/catalog/product/thumbnails/150x150/r/i/richa-1-aprl-15-41.jpeg\",\n" +
-                "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
+                "                \"image_url\": \"http://media.askmebazaar.com/media/catalog/product/thumbnails/150x150/r/i/richa-1-aprl-15-41.jpeg\",\n" +
+                "                \"web-url\": \"http://www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
                 "            },\n" +
                 "            {\n" +
                 "                \"label\": \"Myawesomedeal\",\n" +
-                "                \"image_url\": \"http: //media.askmebazaar.com/media/catalog/product/thumbnails/150x150/a/n/ankit-3-april-2015-41.jpg\",\n" +
+                "                \"image_url\": \"http://media.askmebazaar.com/media/catalog/product/thumbnails/150x150/a/n/ankit-3-april-2015-41.jpg\",\n" +
                 "                \"web-url\": \"http: //www.askmebazaar.com/product.php?product_id=818256&utm_source=web&utm_medium=homepage&utm_campaign=Campaign\"\n" +
                 "            },\n" +
                 "            {\n" +
@@ -129,6 +129,7 @@ public class DataProvider {
         jsonString = jsonString.replace(" ", "");
         jsonString = jsonString.replace("“", "\"");
         jsonString = jsonString.replace("”", "\"");
+        jsonString = jsonString.replace("http: //", "http://");
 
 
         Type type =  new TypeToken<List<BundleData>>(){}.getType();

@@ -7,13 +7,13 @@ import android.support.v7.widget.RecyclerView;
  *
  * Each item that resides in HeterViewsAdapter must implement this interface.
  */
-public interface TemplateItemManager {
+public interface TemplateItemManager<T extends RecyclerView.ViewHolder> {
 
     /**
      * Binds data with view
      * @param holder: holder to which data is to be attached
      */
-    void bindViewHolder(RecyclerView.ViewHolder holder);
+    void bindViewHolder(T holder);
 
     /**
      *

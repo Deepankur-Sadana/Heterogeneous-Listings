@@ -1,25 +1,26 @@
-package vaibhav.com.heterolistings.templatemanagers;
+package vaibhav.com.heterolistings.templatemanagers.type3;
 
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import vaibhav.com.heterolistings.R;
 import vaibhav.com.heterolistings.core.templates.TemplateItemManager;
 import vaibhav.com.heterolistings.core.templates.TemplateProvider;
 import vaibhav.com.heterolistings.core.templates.TemplateType;
+import vaibhav.com.heterolistings.data.BundleData;
 
 /**
  * Created by Vaibhav on 11/29/15.
  *
  * Manager class for Template type 3. Any interaction with type 3 template must be done via this class.
  */
-public class Type3Manager implements TemplateItemManager {
+public class Type3Manager implements TemplateItemManager<Type3Manager.Type3ViewHolder> {
 
-    private String data;
+    private BundleData data;
 
-    public Type3Manager(String data) {
+    public Type3Manager(BundleData data) {
         this.data = data;
     }
 
@@ -29,10 +30,10 @@ public class Type3Manager implements TemplateItemManager {
     }
 
     @Override
-    public void bindViewHolder(RecyclerView.ViewHolder holder) {
-        if (holder instanceof Type3ViewHolder) {
-            ((Type3ViewHolder) holder).setText(data);
-        }
+    public void bindViewHolder(Type3ViewHolder holder) {
+        ViewPager viewPager = holder.getViewPager();
+        Type3PagerAdapter type3PagerAdapter = new Type3PagerAdapter(data.items);
+        viewPager.setAdapter(type3PagerAdapter);
     }
 
     @Override
@@ -40,17 +41,18 @@ public class Type3Manager implements TemplateItemManager {
         return TemplateType.TYPE3.getId();
     }
 
-    private static class Type3ViewHolder extends RecyclerView.ViewHolder {
+    static class Type3ViewHolder extends RecyclerView.ViewHolder {
         View itemView;
+        ViewPager viewPager;
 
         public Type3ViewHolder(View itemView) {
             super(itemView);
             this.itemView = itemView;
+            this.viewPager = (ViewPager) itemView.findViewById(R.id.photo_pager);
         }
 
-        private void setText(String text) {
-            TextView textView = (TextView)itemView.findViewById(R.id.textView);
-            textView.setText(text);
+        private ViewPager getViewPager() {
+            return viewPager;
         }
     }
 }

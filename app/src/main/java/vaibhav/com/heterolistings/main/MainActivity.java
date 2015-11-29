@@ -7,15 +7,19 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import java.util.ArrayList;
 
 import vaibhav.com.heterolistings.R;
 import vaibhav.com.heterolistings.core.templates.TemplateItemManager;
+import vaibhav.com.heterolistings.core.templates.TemplateProvider;
+import vaibhav.com.heterolistings.core.templates.TemplateType;
 import vaibhav.com.heterolistings.data.BundleData;
 import vaibhav.com.heterolistings.data.DataProvider;
-import vaibhav.com.heterolistings.templatemanagers.Type1Manager;
-import vaibhav.com.heterolistings.templatemanagers.Type2Manager;
-import vaibhav.com.heterolistings.templatemanagers.Type3Manager;
+import vaibhav.com.heterolistings.templatemanagers.type1.Type1Manager;
+import vaibhav.com.heterolistings.templatemanagers.type3.Type3Manager;
+import vaibhav.com.heterolistings.templatemanagers.type2.Type2Manager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,24 +30,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (!ImageLoader.getInstance().isInited())
+            TemplateProvider.initImageLoader(this);
+
         parentRecyclerView = (RecyclerView)findViewById(R.id.parent_recycler_view);
         parentRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        // TODO: Remove this test code
-        String dataType1 = "Type 1 Data";
-        String dataType2 = "Type 2 Data";
-        String dataType3 = "Type 3 Data";
+        ArrayList<BundleData> bundleFeed = DataProvider.getData();
 
         ArrayList<TemplateItemManager> templateItemManagers = new ArrayList<>();
 
-        for (int i = 0; i< 100 ; i++) {
-            templateItemManagers.add(new Type1Manager(dataType1));
-            templateItemManagers.add(new Type2Manager(dataType2));
-            templateItemManagers.add(new Type3Manager(dataType3));
+        for (BundleData bundleData : bundleFeed) {
+            if (bundleData.template.equals(TemplateType.TYPE1.getName()))
+                templateItemManagers.add(new Type1Manager(bundleData));
+            else if (bundleData.template.equals(TemplateType.TYPE2.getName()))
+                templateItemManagers.add(new Type2Manager(this,bundleData));
+            else if (bundleData.template.equals(TemplateType.TYPE3.getName()))
+                templateItemManagers.add(new Type3Manager(bundleData));
         }
-        // Test code ends
-
-        ArrayList<BundleData> bundleFeed = DataProvider.getData();
 
         HeteroViewsAdapter heteroViewsAdapter = new HeteroViewsAdapter(templateItemManagers);
         parentRecyclerView.setAdapter(heteroViewsAdapter);

@@ -11,17 +11,17 @@ import java.util.ArrayList;
  */
 public class BundleData {
 
-    String label;
-    String image;
-    String template;
-    ArrayList<BundleItem> items;
+    public String label;
+    public String image;
+    public String template;
+    public ArrayList<BundleItem> items;
 
-    private static class BundleItem {
-        String label;
+    public static class BundleItem {
+        public String label;
         @SerializedName("image_url")
-        String imageUrl;
+        public String imageUrl;
         @SerializedName("web-url")
-        String webUrl;
+        public String webUrl;
     }
 
 }

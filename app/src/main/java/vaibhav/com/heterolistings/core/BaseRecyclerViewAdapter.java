@@ -7,5 +7,5 @@ import android.support.v7.widget.RecyclerView;
  *
  * Base class for Recycler View adapter, any common functionality should be declared here
  */
-abstract public class BaseRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+abstract public class BaseRecyclerViewAdapter<T extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 }

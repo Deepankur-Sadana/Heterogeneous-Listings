@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import vaibhav.com.heterolistings.core.BaseRecyclerViewAdapter;
 import vaibhav.com.heterolistings.core.templates.TemplateItemManager;
 import vaibhav.com.heterolistings.core.templates.TemplateType;
-import vaibhav.com.heterolistings.templatemanagers.Type1Manager;
-import vaibhav.com.heterolistings.templatemanagers.Type2Manager;
-import vaibhav.com.heterolistings.templatemanagers.Type3Manager;
+import vaibhav.com.heterolistings.templatemanagers.type1.Type1Manager;
+import vaibhav.com.heterolistings.templatemanagers.type2.Type2Manager;
+import vaibhav.com.heterolistings.templatemanagers.type3.Type3Manager;
 
 /**
  * Created by Vaibhav on 11/27/15.
