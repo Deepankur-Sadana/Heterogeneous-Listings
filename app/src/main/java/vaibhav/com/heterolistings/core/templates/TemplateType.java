@@ -1,7 +1,9 @@
-package vaibhav.com.heterolistings.core;
+package vaibhav.com.heterolistings.core.templates;
 
 /**
  * Created by Vaibhav on 11/27/15.
+ *
+ * Enum that stores types of templates being used in the application
  */
 public enum TemplateType {
     TYPE1(1, "product-template-1"),
@@ -16,10 +18,18 @@ public enum TemplateType {
         this.name = name;
     }
 
+    /**
+     *
+     * @return: name of the template that appears in the incoming JSON response
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @return: identifier of the template type used through out the application
+     */
     public int getId() {
         return identifier;
     }

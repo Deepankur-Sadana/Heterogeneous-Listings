@@ -6,12 +6,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import vaibhav.com.heterolistings.R;
-import vaibhav.com.heterolistings.core.TemplateItemManager;
-import vaibhav.com.heterolistings.core.TemplateProvider;
-import vaibhav.com.heterolistings.core.TemplateType;
+import vaibhav.com.heterolistings.core.templates.TemplateItemManager;
+import vaibhav.com.heterolistings.core.templates.TemplateProvider;
+import vaibhav.com.heterolistings.core.templates.TemplateType;
 
 /**
  * Created by Vaibhav on 11/27/15.
+ *
+ * Manager class for Template type 2. Any interaction with type 2 template must be done via this class.
  */
 public class Type2Manager implements TemplateItemManager {
 

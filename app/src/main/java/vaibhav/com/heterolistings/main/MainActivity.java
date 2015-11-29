@@ -1,4 +1,4 @@
-package vaibhav.com.heterolistings;
+package vaibhav.com.heterolistings.main;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,9 +9,13 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 
-import vaibhav.com.heterolistings.core.TemplateItemManager;
+import vaibhav.com.heterolistings.R;
+import vaibhav.com.heterolistings.core.templates.TemplateItemManager;
+import vaibhav.com.heterolistings.data.BundleData;
+import vaibhav.com.heterolistings.data.DataProvider;
 import vaibhav.com.heterolistings.templatemanagers.Type1Manager;
 import vaibhav.com.heterolistings.templatemanagers.Type2Manager;
+import vaibhav.com.heterolistings.templatemanagers.Type3Manager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,15 +32,19 @@ public class MainActivity extends AppCompatActivity {
         // TODO: Remove this test code
         String dataType1 = "Type 1 Data";
         String dataType2 = "Type 2 Data";
+        String dataType3 = "Type 3 Data";
 
         ArrayList<TemplateItemManager> templateItemManagers = new ArrayList<>();
 
         for (int i = 0; i< 100 ; i++) {
             templateItemManagers.add(new Type1Manager(dataType1));
             templateItemManagers.add(new Type2Manager(dataType2));
+            templateItemManagers.add(new Type3Manager(dataType3));
         }
         // Test code ends
-        
+
+        ArrayList<BundleData> bundleFeed = DataProvider.getData();
+
         HeteroViewsAdapter heteroViewsAdapter = new HeteroViewsAdapter(templateItemManagers);
         parentRecyclerView.setAdapter(heteroViewsAdapter);
     }

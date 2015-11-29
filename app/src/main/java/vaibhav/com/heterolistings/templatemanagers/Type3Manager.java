@@ -11,45 +11,45 @@ import vaibhav.com.heterolistings.core.templates.TemplateProvider;
 import vaibhav.com.heterolistings.core.templates.TemplateType;
 
 /**
- * Created by Vaibhav on 11/27/15.
+ * Created by Vaibhav on 11/29/15.
  *
- * Manager class for Template type 1. Any interaction with type 1 template must be done via this class.
+ * Manager class for Template type 3. Any interaction with type 3 template must be done via this class.
  */
-public class Type1Manager implements TemplateItemManager {
+public class Type3Manager implements TemplateItemManager {
 
     private String data;
 
-    public Type1Manager(String data) {
+    public Type3Manager(String data) {
         this.data = data;
     }
 
     static public RecyclerView.ViewHolder createViewHolder(ViewGroup parent) {
-        View view = TemplateProvider.getTemplateView(parent, TemplateType.TYPE1);
-        return new Type1ViewHolder(view);
+        View view = TemplateProvider.getTemplateView(parent, TemplateType.TYPE3);
+        return new Type3ViewHolder(view);
     }
 
     @Override
     public void bindViewHolder(RecyclerView.ViewHolder holder) {
-        if (holder instanceof Type1ViewHolder) {
-            ((Type1ViewHolder) holder).setText(data);
+        if (holder instanceof Type3ViewHolder) {
+            ((Type3ViewHolder) holder).setText(data);
         }
     }
 
     @Override
     public int getItemType() {
-        return TemplateType.TYPE1.getId();
+        return TemplateType.TYPE3.getId();
     }
 
-    private static class Type1ViewHolder extends RecyclerView.ViewHolder {
+    private static class Type3ViewHolder extends RecyclerView.ViewHolder {
         View itemView;
 
-        private Type1ViewHolder(View itemView) {
+        public Type3ViewHolder(View itemView) {
             super(itemView);
             this.itemView = itemView;
         }
 
         private void setText(String text) {
-           TextView textView = (TextView)itemView.findViewById(R.id.textView);
+            TextView textView = (TextView)itemView.findViewById(R.id.textView);
             textView.setText(text);
         }
     }
